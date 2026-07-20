@@ -4,7 +4,7 @@
 
 | Campo            | Detalle                                      |
 |------------------|----------------------------------------------|
-| **Duración**     | 15 minutos                                   |
+| **Duración**     | 45 minutos                                   |
 | **Complejidad**  | Media                                        |
 | **Nivel Bloom**  | Aplicar (*Apply*)                            |
 | **Módulo**       | 1 — Estrategia de Entornos y Gobierno        |
