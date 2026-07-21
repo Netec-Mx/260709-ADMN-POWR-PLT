@@ -4,7 +4,7 @@
 
 | Campo            | Valor                                                                 |
 |------------------|-----------------------------------------------------------------------|
-| **Duración**     | 35 minutos                                                            |
+| **Duración**     | 45 minutos                                                            |
 | **Complejidad**  | Alta                                                                  |
 | **Nivel Bloom**  | Aplicar (Apply)                                                       |
 | **Módulo**       | Capítulo 4 — Flujos y gobierno en Power Platform                     |
@@ -59,16 +59,6 @@ Al completar este laboratorio, el estudiante será capaz de:
 ---
 
 ## Entorno de laboratorio
-
-### Hardware recomendado
-
-| Componente       | Mínimo                                    | Recomendado                              |
-|------------------|-------------------------------------------|------------------------------------------|
-| Procesador       | Intel Core i5 8ª gen / AMD Ryzen 5       | Intel Core i7 10ª gen o superior         |
-| Memoria RAM      | 8 GB                                      | 16 GB                                    |
-| Almacenamiento   | 10 GB libres                              | 20 GB libres                             |
-| Resolución       | 1366 × 768                                | 1920 × 1080                              |
-| Conexión         | 10 Mbps                                   | 25 Mbps o superior                       |
 
 ### Software requerido
 
