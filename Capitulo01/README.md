@@ -79,7 +79,7 @@ Verifica que hayas iniciado sesión con la cuenta de administrador de tu tenant 
 
 1. Navega a la pestaña del **Portal de Microsoft Entra ID**: `https://entra.microsoft.com`.
 
-2. En el panel de navegación izquierdo, expande **Identidad** → **Grupos** → haz clic en **Todos los grupos**.
+2. En el panel de navegación izquierdo, expande **Entra ID** → **Grupos**. Clic en **Todos los Grupos**
 
 3. Haz clic en el botón **+ Nuevo grupo** en la barra de herramientas superior.
 
@@ -121,7 +121,7 @@ El grupo `PPA-Sandbox-Dev-Contoso` aparece en la lista de **Todos los grupos** c
 
 1. Navega a la pestaña del **Centro de administración de Power Platform**: `https://admin.powerplatform.microsoft.com`.
 
-2. En el panel de navegación izquierdo, haz clic en **Entornos**.
+2. En el panel de navegación izquierdo, haz clic en **Adminsitración** y posteriormente en **Entornos**.
 
 3. Observa la lista de entornos disponibles. Identifica el entorno de tipo **Predeterminado** (Default) — generalmente tiene el nombre del tenant seguido de `(default)`.
 
