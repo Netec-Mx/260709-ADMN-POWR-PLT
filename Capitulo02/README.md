@@ -6,7 +6,6 @@
 |---|---|
 | **Duración estimada** | 15 minutos |
 | **Complejidad** | Media |
-| **Nivel Bloom** | Aplicar (Apply) |
 | **Módulo** | 2 — Seguridad y Gobierno en Dataverse |
 | **Práctica** | 2 de 4 |
 
@@ -53,15 +52,6 @@ Al completar esta práctica, serás capaz de:
 
 ## Entorno de Laboratorio
 
-### Hardware recomendado
-
-| Componente | Mínimo | Recomendado |
-|---|---|---|
-| Procesador | Intel Core i5 8ª gen / AMD Ryzen 5 | Intel Core i7 / AMD Ryzen 7 |
-| Memoria RAM | 8 GB | 16 GB |
-| Resolución de pantalla | 1366 × 768 | 1920 × 1080 |
-| Conexión a Internet | 10 Mbps | 25 Mbps o superior |
-
 ### Software necesario
 
 | Herramienta | Versión | Acceso |
@@ -80,7 +70,13 @@ pac --version
 # Resultado esperado: Microsoft PowerApps CLI [versión 1.30 o superior]
 ```
 
-Si el CLI no está disponible, todas las tareas pueden completarse íntegramente desde la interfaz web del Centro de Administración.
+Si el CLI no está disponible, todas las tareas pueden completarse íntegramente desde la interfaz web del Centro de Administración. O puede instalarlo con este comando:
+```powershell
+pac --version
+# Resultado esperado: Microsoft PowerApps CLI [versión 1.30 o superior]
+```
+
+
 
 ---
 
