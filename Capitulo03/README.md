@@ -4,7 +4,7 @@
 
 | Campo | Detalle |
 |---|---|
-| **Duración estimada** | 20 minutos |
+| **Duración estimada** | 45 minutos |
 | **Complejidad** | Alta |
 | **Nivel Bloom** | Aplicar (*Apply*) |
 | **Módulo** | 3 — Ciclo de vida de soluciones en Power Platform |
@@ -51,7 +51,6 @@ Al finalizar este laboratorio serás capaz de:
 | **Visual Studio Code** | Versión 1.85 o superior con extensión Power Platform Tools (opcional) |
 | **Navegador web** | Microsoft Edge 120+ o Google Chrome 120+ |
 
-> **⚠️ Nota importante:** Si solo dispones de un entorno, puedes completar los pasos de creación, exportación y análisis con Solution Checker. Para la importación, documenta los pasos que ejecutarías en el entorno de destino y utiliza el entorno disponible para simular el proceso de importación con la solución administrada exportada.
 
 ---
 
@@ -73,21 +72,6 @@ Antes de iniciar el laboratorio, verifica que ambos entornos están operativos e
 3. Confirma que los entornos **Contoso-DEV** y **Contoso-TEST** (o equivalentes) aparecen con estado **Listo**.
 4. Verifica que ambos tienen **Dataverse** habilitado (columna "Tipo" muestra "Sandbox" y la columna de almacenamiento muestra capacidad disponible).
 
-### Verificación Opcional con Power Platform CLI
-
-Si tienes instalado el Power Platform CLI, puedes verificar los entornos disponibles desde la terminal:
-
-```bash
-# Autenticarse en el tenant
-pac auth create --url https://[tu-org].crm.dynamics.com
-
-# Listar todos los entornos del tenant
-pac org list
-```
-
-Deberías ver una lista de entornos con sus nombres, IDs y URLs. Anota las URLs de los entornos DEV y TEST, ya que las necesitarás en pasos posteriores.
-
----
 
 ## Pasos del Laboratorio
 
@@ -611,131 +595,6 @@ Una vez completados todos los pasos, realiza las siguientes verificaciones para 
 3. Selecciona **Reproducir** para ejecutar la aplicación.
 4. Verifica que la pantalla se carga correctamente con la galería de solicitudes (puede estar vacía si no hay datos en TEST, lo cual es normal).
 5. Intenta activar el flujo `Notificar Nueva Solicitud - Contoso` desde la solución (clic en `...` → **Activar**) y confirma que se activa sin errores de conexión.
-
----
-
-## Solución de Problemas
-
-### Problema 1: Error de importación — "Falta la conexión requerida"
-
-**Síntoma:** Durante la importación de la solución administrada en el entorno TEST, el asistente de importación muestra un error similar a:
-```
-Error: Se requiere una conexión para el componente 'Notificar Nueva Solicitud - Contoso'.
-La conexión 'Office 365 Outlook' no está disponible o no ha sido seleccionada.
-```
-La importación falla o el flujo queda importado en estado **Desactivado** con un indicador de error de conexión.
-
-**Causa:** El flujo de Power Automate tiene una dependencia de conexión a Office 365 Outlook que no existe en el entorno destino, o el usuario que realiza la importación no tiene una conexión activa de ese tipo en su perfil. Las conexiones son específicas por usuario y por entorno; no se transportan dentro del paquete de la solución.
-
-**Solución:**
-1. Accede a [https://make.powerapps.com](https://make.powerapps.com) en el entorno **Contoso-TEST**.
-2. Navega a **Más** → **Conexiones** (o [https://make.powerautomate.com](https://make.powerautomate.com) → **Datos** → **Conexiones**).
-3. Haz clic en **+ Nueva conexión**, busca **Office 365 Outlook** y crea la conexión autenticándote con las credenciales del usuario propietario del flujo.
-4. Regresa a **Soluciones** → `Contoso Gestión de Solicitudes` → flujo `Notificar Nueva Solicitud`.
-5. Haz clic en el flujo, selecciona **Editar** y actualiza la conexión de Outlook con la recién creada.
-6. Guarda y activa el flujo.
-
-Si el problema ocurre durante la importación inicial, repite el proceso de importación y en la pantalla de conexiones selecciona la conexión creada.
-
----
-
-### Problema 2: El Solution Checker no muestra resultados o indica "No se puede ejecutar el análisis"
-
-**Síntoma:** Al ejecutar el Solution Checker desde **Soluciones → `...` → Comprobador de soluciones → Ejecutar**, después de esperar varios minutos el estado permanece en "En ejecución" indefinidamente, o aparece un mensaje de error indicando que el análisis no puede completarse. Alternativamente, la opción "Ver resultados" muestra un informe vacío o un error de servicio.
-
-**Causa:** Este problema tiene dos causas comunes: (1) La región del entorno de Power Platform no tiene el servicio de Solution Checker disponible o habilitado (algunos entornos de regiones específicas pueden tener limitaciones). (2) La solución contiene componentes que aún están en estado de borrador o no han sido publicados completamente, lo que impide que el servicio de análisis los procese correctamente.
-
-**Solución:**
-1. **Publicar todas las personalizaciones primero:** En el entorno DEV, ve a **Soluciones** → `Contoso Gestión de Solicitudes` → haz clic en **Publicar todas las personalizaciones** en la barra de comandos. Espera a que la publicación se complete.
-2. **Verificar disponibilidad del servicio:** Accede al [Estado del servicio de Microsoft 365](https://status.office365.com) o al [Portal de administración de Power Platform](https://admin.powerplatform.microsoft.com) → **Estado del servicio** para verificar que no hay incidentes activos que afecten al Solution Checker.
-3. **Intentar nuevamente:** Una vez publicadas las personalizaciones, vuelve a ejecutar el Solution Checker. El análisis debería completarse en 2-5 minutos.
-4. **Alternativa con PAC CLI:** Si el problema persiste, puedes ejecutar el análisis desde la línea de comandos:
-
-```bash
-# Exportar la solución localmente (si no lo has hecho)
-pac solution export --path "C:\LabFiles\Soluciones\Administrada\Contoso_GestionSolicitudes_1_0_0_1_managed.zip" --name "Contoso_GestionSolicitudes" --managed
-
-# Ejecutar el análisis con PAC CLI
-pac solution check --path "C:\LabFiles\Soluciones\Administrada\Contoso_GestionSolicitudes_1_0_0_1_managed.zip" --outputDirectory "C:\LabFiles\SolutionCheckerResults"
-```
-
-Los resultados se guardarán en formato SARIF en el directorio especificado y pueden abrirse con Visual Studio Code.
-
----
-
-## Limpieza del Entorno
-
-> **⚠️ Importante:** Realiza la limpieza solo si el instructor lo indica, ya que los entornos y componentes creados en este laboratorio son necesarios para la **Práctica 4**. Si estás ejecutando las prácticas de forma secuencial, **omite esta sección**.
-
-Si necesitas limpiar el entorno al finalizar el laboratorio de forma independiente:
-
-### Eliminar la Solución del Entorno TEST
-
-1. Accede a [https://make.powerapps.com](https://make.powerapps.com) en el entorno **Contoso-TEST**.
-2. Navega a **Soluciones**.
-3. Selecciona `Contoso Gestión de Solicitudes`.
-4. Haz clic en los tres puntos `...` → **Eliminar**.
-5. Confirma la eliminación. Al ser una solución administrada, todos sus componentes se eliminarán del entorno TEST de forma limpia.
-
-### Eliminar Componentes del Entorno DEV (Opcional)
-
-```bash
-# Con PAC CLI — eliminar la solución del entorno DEV
-pac auth create --url https://[tu-org-dev].crm.dynamics.com
-pac solution delete --solution-unique-name "Contoso_GestionSolicitudes"
-```
-
-O desde la interfaz:
-1. En el entorno **Contoso-DEV**, navega a **Soluciones**.
-2. Selecciona `Contoso Gestión de Solicitudes` → `...` → **Eliminar**.
-3. Nota que al eliminar una solución no administrada, los componentes **no se eliminan automáticamente** del entorno; solo se elimina el contenedor. Deberás eliminar cada componente (tabla, flujo, app) de forma individual si deseas una limpieza completa.
-
-### Eliminar Archivos Locales
-
-```powershell
-# Eliminar archivos de solución descargados
-Remove-Item -Path "C:\LabFiles\Soluciones" -Recurse -Force
-```
-
----
-
-## Resumen
-
-En este laboratorio aplicaste el ciclo de vida completo de una solución de Power Platform siguiendo el flujo recomendado de ALM: **DEV → exportar como administrada → TEST**. Los conceptos clave que practicaste incluyen:
-
-### Conceptos Aplicados
-
-| Concepto | Lo que practicaste |
-|---|---|
-| **Editor de soluciones** | Creaste un editor con prefijo `contoso_` para evitar colisiones de nombres |
-| **Solución no administrada** | Construiste la solución con todos sus componentes en el entorno DEV |
-| **Exportación dual** | Exportaste en formato no administrado (para DEV) y administrado (para TEST/PROD) |
-| **Atributo `<Managed>`** | Inspeccionaste el `solution.xml` para confirmar el tipo de solución exportada |
-| **Dependencias de variables de entorno** | Gestionaste el valor de la variable para el entorno destino durante la importación |
-| **Dependencias de conexiones** | Resolviste la referencia a la conexión de Outlook al importar el flujo |
-| **Solution Checker** | Ejecutaste y revisaste el análisis de calidad de la solución |
-| **Monitoreo operacional** | Revisaste el historial de operaciones en el Admin Center |
-
-### Flujo ALM Practicado
-
-```plaintext
-Contoso-DEV (No Administrada)
-        │
-        ├─── Exportar como NO administrada ──▶ Archivo para backup/DEV
-        │
-        └─── Exportar como ADMINISTRADA ──────▶ Contoso_GestionSolicitudes_managed.zip
-                                                          │
-                                                          ▼
-                                              Contoso-TEST (Administrada)
-                                              ├── Resolver: Variable de entorno
-                                              ├── Resolver: Conexión Outlook
-                                              └── Verificar: Historial de operaciones
-```
-
-### Diferencia Crítica Recordada
-
-- **No administrada** → Capa editable → Solo para entornos DEV → `<Managed>0</Managed>`
-- **Administrada** → Capa protegida → Para TEST y PROD → `<Managed>1</Managed>` → Desinstalación limpia posible
 
 ---
 
