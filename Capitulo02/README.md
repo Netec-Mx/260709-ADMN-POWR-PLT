@@ -4,7 +4,7 @@
 
 | Campo | Detalle |
 |---|---|
-| **Duración estimada** | 15 minutos |
+| **Duración estimada** | 45 minutos |
 | **Complejidad** | Media |
 | **Módulo** | 2 — Seguridad y Gobierno en Dataverse |
 | **Práctica** | 2 de 4 |
