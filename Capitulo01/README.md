@@ -6,7 +6,6 @@
 |------------------|----------------------------------------------|
 | **Duración**     | 45 minutos                                   |
 | **Complejidad**  | Media                                        |
-| **Nivel Bloom**  | Aplicar (*Apply*)                            |
 | **Módulo**       | 1 — Estrategia de Entornos y Gobierno        |
 | **Rol objetivo** | Administrador de Power Platform              |
 
@@ -41,31 +40,8 @@ Al completar esta práctica serás capaz de:
 | Políticas DLP en Power Platform   | Familiaridad conceptual con clasificación de conectores                         |
 | Centro de administración de Microsoft 365 | Navegación básica                                                      |
 
-### Acceso y Cuentas Requeridos
-
-| Recurso                                        | Detalle                                                                                                  |
-|------------------------------------------------|----------------------------------------------------------------------------------------------------------|
-| Tenant de Microsoft 365                        | Con rol de **Administrador Global** o **Administrador de Power Platform** asignado                       |
-| Entorno predeterminado de Power Platform       | Debe existir al menos un entorno en el tenant (creado automáticamente)                                   |
-| Grupo de seguridad en Microsoft Entra ID       | Grupo de tipo **Seguridad** creado previamente; nombre sugerido: `PPA-Sandbox-Dev-Contoso`               |
-| Licencias de Power Apps / Power Automate       | Licencias Premium activas (los tenants E5 del Developer Program las incluyen)                            |
-| Capacidad de Dataverse disponible              | Mínimo **1 GB** libre en el tenant para aprovisionar la base de datos del nuevo entorno                  |
-
-> **Nota para el instructor:** Si el grupo de seguridad `PPA-Sandbox-Dev-Contoso` no existe aún, el estudiante lo creará en el **Paso 1** antes de proceder con la creación del entorno.
-
----
-
 ## Entorno de Laboratorio
 
-### Hardware Mínimo Recomendado
-
-| Componente         | Mínimo                                     | Recomendado                              |
-|--------------------|--------------------------------------------|------------------------------------------|
-| Procesador         | Intel Core i5 8ª gen / AMD Ryzen 5         | Intel Core i7 10ª gen o superior         |
-| Memoria RAM        | 8 GB                                       | 16 GB                                    |
-| Almacenamiento     | 10 GB disponibles                          | 20 GB disponibles                        |
-| Resolución         | 1366 × 768                                 | 1920 × 1080                              |
-| Conexión a Internet| 10 Mbps estable                            | 25 Mbps o superior                       |
 
 ### Software Requerido
 
