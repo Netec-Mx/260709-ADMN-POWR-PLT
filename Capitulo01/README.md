@@ -219,9 +219,10 @@ Una vez completado el aprovisionamiento:
 
 #### Instrucciones
 
-1. En el Centro de administración de Power Platform, en el panel de navegación izquierdo, haz clic en **Recursos** → **Capacidad**.
+1. En el Centro de administración de Power Platform, en el panel de navegación izquierdo, haz clic en **Recursos** o en **Licenciamiento** → **Capacidad add on**.
+2. En el menú de **Licensing** clic en **Dataverse**.
 
-2. Se abre el panel **Resumen de capacidad**. Examina las tres categorías principales:
+3. Se abre el panel **Resumen de capacidad**. En la pestaña **Summary**. Examina las tres categorías principales:
 
    | Categoría de almacenamiento | Descripción                                                          |
    |-----------------------------|----------------------------------------------------------------------|
@@ -229,7 +230,7 @@ Una vez completado el aprovisionamiento:
    | **Archivos**                | Archivos adjuntos y datos de tipo archivo en Dataverse               |
    | **Registro**                | Datos de auditoría y registros de seguimiento                        |
 
-3. Registra los valores actuales en tu documento de estrategia:
+4. Registra los valores actuales en tu documento de estrategia:
 
    ```
    Capacidad total de base de datos    : ___ GB
@@ -242,13 +243,13 @@ Una vez completado el aprovisionamiento:
    Número de entornos con Dataverse    : ___
    ```
 
-4. Desplázate hacia abajo para ver la tabla **Capacidad por entorno**. Identifica el entorno `Dev-Soluciones-Contoso` recién creado (puede aparecer con valores iniciales mínimos).
+5. Clic en la pestaña **Environments** ver la tabla **Capacidad por entorno**. Identifica el entorno `Dev-Soluciones-Contoso` recién creado (puede aparecer con valores iniciales mínimos).
 
-5. Observa el entorno **Predeterminado** y verifica cuánta capacidad está consumiendo actualmente.
+6. En **Change Environment** cambia el entorno. Observa el entorno **Predeterminado** y verifica cuánta capacidad está consumiendo actualmente.
 
-6. Haz clic en la pestaña **Complementos** (si está disponible) para revisar si el tenant tiene capacidad adicional adquirida.
+7. Haz clic en la pestaña **Complementos** (si está disponible) para revisar si el tenant tiene capacidad adicional adquirida.
 
-7. Regresa al panel principal de **Entornos** para verificar si el entorno `Dev-Soluciones-Contoso` ya cambió su estado a **Listo**.
+8. Regresa al panel principal de **Entornos** para verificar si el entorno `Dev-Soluciones-Contoso` ya cambió su estado a **Listo**.
 
 #### Resultado Esperado
 
