@@ -539,14 +539,14 @@ Si necesitas limpiar los recursos creados:
 
 **1. Eliminar la política DLP:**
 ```
-Centro de administración → Políticas → Políticas de datos
+Centro de administración → Seguridad → Data y Privacidad → Políticas de datos
 → Seleccionar "DLP-Dev-Contoso-Conectores-Empresariales"
 → Clic en "Eliminar" → Confirmar eliminación
 ```
 
 **2. Eliminar el entorno Sandbox:**
 ```
-Centro de administración → Entornos
+Centro de administración →  Administrar → Entornos
 → Seleccionar "Dev-Soluciones-Contoso"
 → Clic en "Eliminar" en la barra de herramientas
 → Escribir el nombre del entorno para confirmar → Confirmar eliminación
@@ -556,7 +556,7 @@ Centro de administración → Entornos
 
 **3. Eliminar el grupo de seguridad (opcional):**
 ```
-Portal de Microsoft Entra ID → Identidad → Grupos → Todos los grupos
+Portal de Microsoft Entra ID → Entra ID → Grupos → Todos los grupos
 → Buscar "PPA-Sandbox-Dev-Contoso"
 → Seleccionar el grupo → Clic en "Eliminar" → Confirmar
 ```
