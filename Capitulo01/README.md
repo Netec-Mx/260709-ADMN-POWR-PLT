@@ -269,9 +269,9 @@ Visualizas el desglose completo de capacidad de almacenamiento del tenant, con l
 
 #### Instrucciones
 
-1. En el Centro de administración de Power Platform, en el panel de navegación izquierdo, haz clic en **Políticas** → **Políticas de datos**.
+1. En el Centro de administración de Power Platform, en el panel de navegación izquierdo, haz clic en **Seguridad** → **Datos y privacidad** → **Política de Datos** 
 
-2. Haz clic en **+ Nueva política** en la barra de herramientas superior.
+2. Haz clic en **+ Nueva política**
 
 3. En el campo **Nombre de la política**, escribe:
    ```
@@ -294,13 +294,12 @@ Visualizas el desglose completo de capacidad de almacenamiento del tenant, con l
    | Microsoft Teams                 | Comunicación y colaboración interna                |
    | Office 365 Outlook              | Correo electrónico corporativo                     |
    | Office 365 Users                | Directorio de usuarios organizacionales            |
-   | Approvals                       | Flujos de aprobación empresariales                 |
+   | Standard Approvals                       | Flujos de aprobación empresariales                 |
 
 7. Mueve los siguientes conectores al grupo **Bloqueado**:
 
    | Conector                        | Justificación de bloqueo                           |
    |---------------------------------|----------------------------------------------------|
-   | Twitter / X                     | Red social externa sin uso empresarial aprobado    |
    | Gmail                           | Correo externo no corporativo                      |
    | Dropbox                         | Almacenamiento en la nube externo no aprobado      |
 
@@ -308,15 +307,17 @@ Visualizas el desglose completo de capacidad de almacenamiento del tenant, con l
 
 8. Haz clic en **Siguiente**.
 
-9. En la pantalla **Definir ámbito**, selecciona la opción **Agregar varios entornos** y luego elige **Aplicar a entornos específicos**.
+9. En Custom Connectors,  Haz clic en **Siguiente**
 
-10. En el campo de búsqueda, escribe `Dev-Soluciones-Contoso` y selecciona el entorno. Haz clic en **Agregar a política**.
+10. En la pantalla **Definir ámbito**, selecciona la opción **Agregar múltiples entornos** y luego clic en **Siguiente**.
+
+11. Em Add Environments, En el campo de búsqueda, escribe `Dev-Soluciones-Contoso` y selecciona el entorno. Haz clic en **Agregar a política**.
 
     > **Importante:** No selecciones "Todos los entornos" ni "Todos excepto seleccionados", ya que esto afectaría entornos fuera del alcance de esta práctica.
 
-11. Confirma que el entorno `Dev-Soluciones-Contoso` aparece en la lista de entornos asignados a esta política.
+12. Confirma que el entorno `Dev-Soluciones-Contoso` aparece en la lista de entornos asignados a esta política.
 
-12. Haz clic en **Siguiente** y revisa el resumen de la política:
+13. Haz clic en **Siguiente** y revisa el resumen de la política:
 
     ```
     Nombre de la política  : DLP-Dev-Contoso-Conectores-Empresariales
@@ -326,7 +327,7 @@ Visualizas el desglose completo de capacidad de almacenamiento del tenant, con l
     Conectores No negocio  : Resto de conectores disponibles
     ```
 
-13. Haz clic en **Crear política**.
+14. Haz clic en **Crear política**.
 
 #### Resultado Esperado
 
