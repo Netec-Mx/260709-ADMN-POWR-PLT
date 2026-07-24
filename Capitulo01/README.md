@@ -6,7 +6,7 @@
 |------------------|----------------------------------------------|
 | **Duración**     | 45 minutos                                   |
 | **Complejidad**  | Media                                        |
-| **Módulo**       | 2 — Estrategia de Entornos y Gobierno        |
+| **Módulo**       | 1 — Estrategia de Entornos y Gobierno        |
 | **Rol objetivo** | Administrador de Power Platform              |
 
 ---
